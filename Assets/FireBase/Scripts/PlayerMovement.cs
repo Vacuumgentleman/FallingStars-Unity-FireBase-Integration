@@ -1,19 +1,27 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 5f;
 
-    private void Update()
+    private Rigidbody rb;
+    private Vector3 movement;
+
+    private void Awake()
     {
-        Move();
+        rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotation; // prevent unwanted rotation
     }
 
-    private void Move()
+    private void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        Vector3 movement = Vector3.right * horizontalInput * movementSpeed * Time.deltaTime;
+        movement = new Vector3(horizontalInput, 0f, 0f);
+    }
 
-        transform.Translate(movement);
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
     }
 }
