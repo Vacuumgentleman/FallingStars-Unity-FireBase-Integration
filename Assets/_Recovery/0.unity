@@ -175,18 +175,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5263712739037103900, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
-      value: 1801810542
-      objectReference: {fileID: 0}
-    - target: {fileID: 5263712739431233817, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: m_text
-      value: v.0.11.11.25.C
-      objectReference: {fileID: 0}
-    - target: {fileID: 5263712739431233817, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
-      value: 1801810542
-      objectReference: {fileID: 0}
     - target: {fileID: 5263712739616330771, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -227,30 +215,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5263712739811740252, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: logo
-      value: 
-      objectReference: {fileID: 21300000, guid: d57abdfa0a48c4d4db21de1fb19650d3, type: 3}
     - target: {fileID: 5263712739811740252, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
       propertyPath: sceneToLoad
       value: Game
       objectReference: {fileID: 0}
-    - target: {fileID: 5263712739866077873, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
-      value: 1801810542
-      objectReference: {fileID: 0}
-    - target: {fileID: 5263712739891916883, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
-      value: 1801810542
-      objectReference: {fileID: 0}
-    - target: {fileID: 5263712739956155676, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5263712740153787246, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 5263712740313381776, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -271,19 +239,9 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5263712740343563625, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -200
-      objectReference: {fileID: 0}
-    - target: {fileID: 5263712740939644356, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5263712740639434767, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 5263712739336733875, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
-    - {fileID: 5263712739104420912, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5263712740639434765, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
