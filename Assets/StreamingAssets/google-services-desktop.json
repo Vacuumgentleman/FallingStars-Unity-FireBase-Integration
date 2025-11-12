@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1059626011905",
+    "project_id": "servicios-b90c6",
+    "storage_bucket": "servicios-b90c6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059626011905:android:47f8789575efafd14b9f00",
+        "android_client_info": {
+          "package_name": "com.TVG.FallingStars"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7AutnSoTlIB6f2RCNZBeB3e9w--7K9V0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

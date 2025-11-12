@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/FireBase/Scenes/Menu.unity
+    path: Assets/FallingStars/Scenes/Menu.unity
     guid: e2990a21600b90941924ec379269940d
   - enabled: 1
-    path: Assets/FireBase/Scenes/Game.unity
+    path: Assets/FallingStars/Scenes/Game.unity
     guid: e30b825d3cf735842b8050ec0bb28662
   - enabled: 1
-    path: Assets/FireBase/Scenes/EndScene.unity
+    path: Assets/FallingStars/Scenes/EndScene.unity
     guid: ca3759c89358fd746a6fd74d7f6b4cac
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 95ef25c8a70882847b4acdb21d819080, type: 2}
