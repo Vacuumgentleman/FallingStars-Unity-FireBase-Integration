@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/FallingStars/Scenes/Game.unity
     guid: e30b825d3cf735842b8050ec0bb28662
   - enabled: 1
-    path: Assets/FallingStars/Scenes/EndScene.unity
-    guid: ca3759c89358fd746a6fd74d7f6b4cac
+    path: Assets/FallingStars/Scenes/GameOverScene.unity
+    guid: 3a21c5dc35a5b0d4693684b191a4aeb0
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 95ef25c8a70882847b4acdb21d819080, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
