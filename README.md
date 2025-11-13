@@ -110,3 +110,16 @@ screenshots: |
   |---------------|------------|------------|
   | <img width="700" alt="Database View" src="https://github.com/user-attachments/assets/db0182a8-22d1-43e7-b09a-2694d09c1728" /> | <img width="200" alt="Test Data 1" src="https://github.com/user-attachments/assets/83f18017-4557-4209-95d6-d0b5076a4054" /> | <img width="200" alt="Test Data 2" src="https://github.com/user-attachments/assets/e59b4071-7222-4e61-b855-64fb322b5db6" /> |
 
+---
+
+  ## Videos
+
+  ### Gameplay from Unity
+  [![Gameplay Video](https://img.youtube.com/vi/93e20dd9-c235-4a50-b1c9-16558643ae88/0.jpg)](https://github.com/user-attachments/assets/93e20dd9-c235-4a50-b1c9-16558643ae88)
+
+  ### Database & Scripts
+  [![Database & Scripts Video](https://img.youtube.com/vi/e8c9332f-bfb1-4153-b05d-31731928b371/0.jpg)](https://github.com/user-attachments/assets/e8c9332f-bfb1-4153-b05d-31731928b371)
+
+
+
+
