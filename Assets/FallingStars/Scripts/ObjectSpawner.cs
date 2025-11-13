@@ -6,6 +6,8 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private float spawnInterval = 1.5f;
     [SerializeField] private float spawnRangeX = 5f;
 
+    private bool isSpawning = true;
+
     private void Start()
     {
         if (fallingObjectPrefab == null)
@@ -20,9 +22,17 @@ public class ObjectSpawner : MonoBehaviour
 
     private void SpawnObject()
     {
+        if (!isSpawning) return;
+
         var xPosition = Random.Range(-spawnRangeX, spawnRangeX);
         var spawnPosition = new Vector3(xPosition, transform.position.y, 0f);
 
         Instantiate(fallingObjectPrefab, spawnPosition, Quaternion.identity);
+    }
+
+    public void StopSpawning()
+    {
+        isSpawning = false;
+        CancelInvoke(nameof(SpawnObject));
     }
 }

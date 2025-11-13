@@ -1466,6 +1466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 219270992}
   - component: {fileID: 219270993}
+  - component: {fileID: 219270994}
   m_Layer: 0
   m_Name: GameOverUi
   m_TagString: Untagged
@@ -1511,6 +1512,20 @@ MonoBehaviour:
   - {fileID: 1005084428}
   - {fileID: 1041935506}
   deactivateOnSubmit: {fileID: 1682897795}
+--- !u!114 &219270994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219270991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b7d87a86d70a74c94478a596dad382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOverButtons
+  mainMenuButton: {fileID: 766695968}
+  quitButton: {fileID: 412096046}
 --- !u!1 &221029663
 GameObject:
   m_ObjectHideFlags: 0
@@ -13515,6 +13530,7 @@ MonoBehaviour:
   - {fileID: 144156945}
   - {fileID: 1569922111}
   - {fileID: 534721122}
+  refreshButton: {fileID: 0}
 --- !u!1 &1878549802
 GameObject:
   m_ObjectHideFlags: 0
@@ -13991,7 +14007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   scoreManager: {fileID: 1961387519}
   gameTimer: {fileID: 1284750078}
-  spawner: {fileID: 0}
+  spawner: {fileID: 1547370242}
   uiToDeactivate:
   - {fileID: 1676229684}
   - {fileID: 1547370240}
@@ -15560,7 +15576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2140807012
 RectTransform:
   m_ObjectHideFlags: 0
