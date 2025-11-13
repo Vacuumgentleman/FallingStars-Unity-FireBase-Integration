@@ -4,16 +4,18 @@ using System.Threading.Tasks;
 using Firebase.Firestore;
 using Firebase.Extensions;
 using UnityEngine;
+using TMPro;
 
-/// <summary>
-/// Singleton Firebase manager that persists across scenes.
-/// Ensures the GameObject is a root object before calling DontDestroyOnLoad.
-/// </summary>
 public class FirebaseManager : MonoBehaviour
 {
     public static FirebaseManager Instance { get; private set; }
 
     private FirebaseFirestore db;
+
+    [Header("UI References (Optional)")]
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text survivalTimeText;
+    [SerializeField] private TMP_Text bonusText;
 
     private void Awake()
     {
@@ -23,7 +25,6 @@ public class FirebaseManager : MonoBehaviour
 
     private void InitializeSingleton()
     {
-        // If an instance already exists and it's not this, destroy this object.
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -31,32 +32,18 @@ public class FirebaseManager : MonoBehaviour
         }
 
         Instance = this;
-
-        // Ensure this GameObject is a root object. If not, detach it.
-        if (transform.parent != null)
-        {
-            transform.SetParent(null, worldPositionStays: true);
-            Debug.Log("[FirebaseManager] Detached from parent to become a root GameObject.");
-        }
-
-        // Persist across scene loads
         DontDestroyOnLoad(gameObject);
     }
 
     private void InitializeDatabase()
     {
-        try
-        {
-            db = FirebaseFirestore.DefaultInstance;
-            Debug.Log("[FirebaseManager] Firestore initialized.");
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[FirebaseManager] Failed to initialize Firestore: {ex.Message}");
-        }
+        db = FirebaseFirestore.DefaultInstance;
     }
 
-    public async Task SavePlayerDataAsync(string playerName, int score, float survivalTime, int bonusCollected)
+    /// <summary>
+    /// Saves player data manually or reads from UI if no parameters are given.
+    /// </summary>
+    public async Task SavePlayerDataAsync(string playerName, int score = -1, float survivalTime = -1f, int bonusCollected = -1)
     {
         if (string.IsNullOrEmpty(playerName))
         {
@@ -64,16 +51,14 @@ public class FirebaseManager : MonoBehaviour
             return;
         }
 
-        if (db == null)
-        {
-            Debug.LogError("[FirebaseManager] Firestore is not initialized. Cannot save data.");
-            return;
-        }
+        // If no values are passed, try reading them from UI
+        if (score < 0) score = ParseIntFromText(scoreText);
+        if (survivalTime < 0) survivalTime = ParseFloatFromText(survivalTimeText);
+        if (bonusCollected < 0) bonusCollected = ParseIntFromText(bonusText);
 
         try
         {
-            CollectionReference highscoresRef = db.Collection("Highscores");
-
+            var highscoresRef = db.Collection("Highscores");
             var playerData = new Dictionary<string, object>
             {
                 { "PlayerName", playerName },
@@ -84,7 +69,7 @@ public class FirebaseManager : MonoBehaviour
             };
 
             await highscoresRef.AddAsync(playerData);
-            Debug.Log($"[FirebaseManager] Data saved successfully for {playerName}");
+            Debug.Log($"[FirebaseManager] Data saved successfully for {playerName} (Score: {score}, Time: {survivalTime}, Bonus: {bonusCollected})");
         }
         catch (Exception ex)
         {
@@ -96,21 +81,15 @@ public class FirebaseManager : MonoBehaviour
     {
         var highscores = new List<Dictionary<string, object>>();
 
-        if (db == null)
-        {
-            Debug.LogError("[FirebaseManager] Firestore is not initialized. Cannot retrieve highscores.");
-            return highscores;
-        }
-
         try
         {
-            Query query = db.Collection("Highscores")
-                            .OrderByDescending("Score")
-                            .Limit(limit);
+            var query = db.Collection("Highscores")
+                          .OrderByDescending("Score")
+                          .Limit(limit);
 
-            QuerySnapshot snapshot = await query.GetSnapshotAsync();
+            var snapshot = await query.GetSnapshotAsync();
 
-            foreach (DocumentSnapshot doc in snapshot.Documents)
+            foreach (var doc in snapshot.Documents)
             {
                 highscores.Add(doc.ToDictionary());
             }
@@ -123,5 +102,18 @@ public class FirebaseManager : MonoBehaviour
         }
 
         return highscores;
+    }
+
+    // Utility: safely parse numbers from UI
+    private int ParseIntFromText(TMP_Text text)
+    {
+        if (text == null) return 0;
+        return int.TryParse(text.text, out int value) ? value : 0;
+    }
+
+    private float ParseFloatFromText(TMP_Text text)
+    {
+        if (text == null) return 0f;
+        return float.TryParse(text.text, out float value) ? value : 0f;
     }
 }
