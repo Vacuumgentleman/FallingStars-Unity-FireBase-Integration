@@ -41,8 +41,7 @@ public class LeaderboardUI : MonoBehaviour
 
     private async Task LoadTop3Async()
     {
-        // Usamos el método actual que solo toma limit
-        var allPlayers = await firebaseManager.GetHighscoresAsync(50); // Trae más para filtrar localmente
+        var allPlayers = await firebaseManager.GetHighscoresAsync(50); 
 
         if (allPlayers == null || allPlayers.Count == 0)
         {
@@ -50,7 +49,6 @@ public class LeaderboardUI : MonoBehaviour
             return;
         }
 
-        // Filtramos solo los que estén en la colección correcta (PlayerScores)
         var topPlayers = allPlayers
             .Where(p => p.ContainsKey("PlayerName") && p.ContainsKey("Score") && p.ContainsKey("SurvivalTime"))
             .Select(p => new PlayerData

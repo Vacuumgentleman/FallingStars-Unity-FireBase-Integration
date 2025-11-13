@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private GameTimer gameTimer;
-    [SerializeField] private ObjectSpawner spawner; // 👈 referencia al spawner
+    [SerializeField] private ObjectSpawner spawner; 
 
     [Header("UI References")]
     [SerializeField] private GameObject[] uiToDeactivate;
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
 
         StopGameTime();
-        StopSpawner(); // 👈 Detiene el spawner
+        StopSpawner(); 
         Attempts++;
         HandleUIState();
         MoveStatsPanel();
@@ -75,17 +75,15 @@ public class GameManager : MonoBehaviour
             scoreManager.StopScore();
     }
 
-    // 👇 Función agregada
     private void StopSpawner()
     {
         if (spawner != null)
         {
-            spawner.CancelInvoke(); // detiene el InvokeRepeating
-            spawner.enabled = false; // desactiva el script
+            spawner.CancelInvoke(); 
+            spawner.enabled = false; 
         }
         else
         {
-            // Alternativa: buscarlo automáticamente si no está asignado
             var foundSpawner = FindObjectOfType<ObjectSpawner>();
             if (foundSpawner != null)
             {
@@ -132,6 +130,6 @@ public class GameManager : MonoBehaviour
             scoreManager.ResetScore();
 
         if (spawner != null)
-            spawner.enabled = true; // vuelve a activar el spawn
+            spawner.enabled = true; 
     }
 }

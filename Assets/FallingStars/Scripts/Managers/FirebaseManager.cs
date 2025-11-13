@@ -41,9 +41,7 @@ public class FirebaseManager : MonoBehaviour
         db = FirebaseFirestore.DefaultInstance;
     }
 
-    /// <summary>
-    /// Guarda los datos de un jugador en la colección PlayerScores
-    /// </summary>
+
     public async Task SavePlayerDataAsync(string playerName, int score = -1, float survivalTime = -1f, int bonusCollected = -1)
     {
         if (string.IsNullOrEmpty(playerName))
@@ -52,7 +50,6 @@ public class FirebaseManager : MonoBehaviour
             return;
         }
 
-        // Si no se pasan valores, se intentan leer desde UI
         if (score < 0) score = ParseIntFromText(scoreText);
         if (survivalTime < 0) survivalTime = ParseFloatFromText(survivalTimeText);
         if (bonusCollected < 0) bonusCollected = ParseIntFromText(bonusText);
@@ -78,9 +75,6 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Obtiene los mejores jugadores de PlayerScores ordenados por Score descendente
-    /// </summary>
     public async Task<List<Dictionary<string, object>>> GetHighscoresAsync(int limit = 10)
     {
         var highscores = new List<Dictionary<string, object>>();
