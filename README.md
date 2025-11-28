@@ -84,7 +84,6 @@ Bonus items increase the player's score. The game integrates Firebase for saving
 - **Move Right:** Right Arrow / D
 
 ---
-screenshots: |
   ## Screenshots
 
   ### Menu & Settings
